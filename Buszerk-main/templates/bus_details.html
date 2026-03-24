@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Bus Details - {{ bus.name }}{% endblock %}
+
+{% block content %}
+<div class="bus-details-container">
+    <div class="bus-header">
+        <h1>{{ bus.name }}</h1>
+        <p class="route-summary">{{ bus.from }} → {{ bus.to }}</p>
+        <p style="color: var(--text-secondary); font-style: italic;">(Real-time updates powered by machine learning)</p>
+    </div>
+
+    <div class="route-map">
+        <div class="route-timeline">
+            {% for stop in bus.stops %}
+            <div class="stop-container 
+                {% if stop.is_current %}current-stop{% endif %}
+                {% if stop.is_user_stop %}user-stop{% endif %}
+                {% if stop.is_final %}final-stop{% endif %}">
+                
+                <div class="stop-marker">
+                    {% if stop.is_current %}
+                    <img src="{{ url_for('static', filename='images/bus-icon.png') }}" class="bus-icon" alt="Bus">
+                    {% elif stop.is_user_stop %}
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="check-{{ loop.index0 }}" class="stop-checkbox">
+                        <label for="check-{{ loop.index0 }}" class="checkbox-label"></label>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/user-icon.png') }}" class="user-icon" alt="Your Stop">
+                    {% endif %}
+                    <div class="stop-dot"></div>
+                </div>
+
+                <div class="stop-info">
+                    <h3>{{ stop.name }}
+                        {% if stop.is_current %}(Current Bus Location){% endif %}
+                        {% if stop.is_user_stop %}(Your Stop){% endif %}
+                        {% if stop.is_final %}(Final Stop){% endif %}
+                    </h3>
+
+                    {% if not stop.is_final %}
+                    {% if stop.is_user_stop %}
+                    <div class="stop-stats">
+                        <p>Potential Seats: {{ stop.potential_seats }}</p>
+                    </div>
+                    {% else %}
+                    <div class="stop-stats">
+                        <p>Predicted Waiting Passengers: {{ stop.predicted_waiting }}</p>
+                        <p>Actual Passengers Getting Off: {{ stop.getting_off }}</p>
+                        <p>Actual Passengers Boarding: {{ stop.boarding }}</p>
+                        <p>Current Passengers: {{ stop.current_passengers }}</p>
+                        <p>Available Seats: {{ stop.available_seats }}</p>
+                        <p>Standing Passengers: {{ stop.standing }}</p>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            {% if not loop.last %}
+            <div class="route-connector"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Live Bus Tracking Icon (Bottom Left) -->
+    <a href="{{ url_for('bus_tracking') }}" class="tracking-icon" title="Live Bus Tracking">
+        <svg class="bus-tracking-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+    </a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('.stop-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const label = checkbox.nextElementSibling;
+                if (checkbox.checked) {
+                    label.classList.add('checked');
+                } else {
+                    label.classList.remove('checked');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

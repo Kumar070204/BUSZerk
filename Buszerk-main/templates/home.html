@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <!-- Fake Call Button at the Top Center -->
+    <div class="fake-call-container">
+        <a href="{{ url_for('fake_call') }}" class="fake-call-button" title="Trigger Fake Call">
+            <svg class="fake-call-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span>Fake Call</span>
+        </a>
+    </div>
+
+    <!-- SOS Button at the Top Center -->
+    <div class="sos-container">
+        <a href="{{ url_for('sos') }}" class="sos-button" title="Emergency SOS">
+            <svg class="sos-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+            </svg>
+            <span>SOS</span>
+        </a>
+    </div>
+
+    <!-- Search Container with Flash Messages -->
+    <div class="search-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form class="search-form" method="POST">
+            <input type="text" name="from" placeholder="From" required>
+            <input type="text" name="to" placeholder="To" required>
+            <button type="submit" class="btn-primary">Search Buses</button>
+        </form>
+    </div>
+
+    <div class="bus-list">
+        <h2>Available Buses</h2>
+        {% if buses %}
+            {% for bus in buses %}
+            <a href="{{ url_for('bus_details', bus_id=bus.id) }}" class="bus-card-link">
+                <div class="bus-card">
+                    <h3>{{ bus.name }}</h3>
+                    <div class="route-info">
+                        <p>{{ bus.from }} → {{ bus.to }}</p>
+                        <p class="time">Arrives in: {{ bus.time }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <p>No buses available for the selected route.</p>
+        {% endif %}
+    </div>
+
+    <!-- Floating Chatbot Icon -->
+    <a href="{{ url_for('chatbot') }}" class="chatbot-icon" title="Chat with Buszerk Bot">
+        <svg class="robot-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C9.24 2 7 4.24 7 7v1H5v8h14V8h-2V7c0-2.76-2.24-5-5-5zm0 2c1.65 0 3 1.35 3 3v1H9V7c0-1.65 1.35-3 3-3zm-1 5h2v2h-2V9zm-2 4h6v2H9v-2zm-4 3h14v2H5v-2z"/>
+            <circle cx="9" cy="10" r="1"/>
+            <circle cx="15" cy="10" r="1"/>
+        </svg>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Emergency SOS{% endblock %}
+
+{% block content %}
+<div id="sos-confirmation" class="sos-section">
+    <h1>Emergency SOS</h1>
+    <p>Please enter the emergency contact phone number and allow location access to send an SOS message.</p>
+    <form id="sosForm">
+        <div class="form-group">
+            <label for="phone">Emergency Contact Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="e.g., +919876543210" required>
+        </div>
+        <button type="submit" id="confirm-sos" class="btn-primary">Send SOS</button>
+        <button type="button" id="cancel-sos" class="btn-secondary">Cancel</button>
+    </form>
+</div>
+
+<div id="sos-success" class="sos-section" style="display: none;">
+    <p class="success-message">SOS Message Sent Successfully!</p>
+    <button id="back-to-home" class="btn-primary">Back to Home</button>
+</div>
+
+<div id="sos-error" class="sos-section" style="display: none;">
+    <p class="error-message">Error sending SOS: <span id="error-text"></span></p>
+    <button onclick="document.getElementById('sos-error').style.display = 'none'; document.getElementById('sos-confirmation').style.display = 'block';" class="btn-secondary">Try Again</button>
+</div>
+
+<script>
+    // Define URLs from Flask template rendering
+    const homeUrl = "{{ url_for('home') }}";
+
+    document.getElementById("sosForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent form from submitting normally
+
+        const phone = document.getElementById("phone").value;
+
+        if (!phone) {
+            alert("Please enter an emergency contact phone number.");
+            return;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+
+                fetch("/send_sos", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ phone: phone, latitude: lat, longitude: lon })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.return) { // Fast2SMS success response
+                        document.getElementById('sos-confirmation').style.display = 'none';
+                        document.getElementById('sos-success').style.display = 'block';
+                    } else if (data.error) {
+                        throw new Error(data.error);
+                    } else {
+                        throw new Error("Unknown error");
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('sos-confirmation').style.display = 'none';
+                    document.getElementById('sos-error').style.display = 'block';
+                    document.getElementById('error-text').textContent = error.message || 'Failed to send SOS';
+                    console.error('SOS Error:', error);
+                });
+            }, (error) => {
+                document.getElementById('sos-confirmation').style.display = 'none';
+                document.getElementById('sos-error').style.display = 'block';
+                document.getElementById('error-text').textContent = 'Geolocation error: ' + error.message;
+                console.error('Geolocation Error:', error);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+
+    // Handle Cancel button
+    document.getElementById('cancel-sos').addEventListener('click', function() {
+        window.location.href = homeUrl;
+    });
+
+    // Handle Back to Home button
+    document.getElementById('back-to-home').addEventListener('click', function() {
+        window.location.href = homeUrl;
+    });
+</script>
+<style>
+    .sos-section {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input {
+        padding: 5px;
+        width: 200px;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+    }
+    .success-message, .error-message {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .success-message {
+        color: green;
+    }
+    .error-message {
+        color: red;
+    }
+</style>
+{% endblock %}

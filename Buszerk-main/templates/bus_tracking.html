@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Live Bus Tracking{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="sos-page-container">
+        <h2>🚍 Live Bus Tracking</h2>
+        <p id="location-info" style="margin-top: 10px; font-weight: bold;">📍 Getting GPS location...</p>
+        <div id="map" style="height: 500px; width: 100%; margin-top: 10px;"></div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"/>
+
+<script>
+    let predefinedPhoneNumber = "{{ user.emergency.phone if user.emergency.phone else '6381152197' }}"; // Use user's emergency phone or default
+    let userMarker, busMarker;
+    let route = [];
+    let currentIndex = 0;
+    let moveInterval;
+    let emergencyTriggered = false;
+    let centerLat, centerLon;
+
+    // Initialize Map
+    let map = L.map('map').setView([13.0827, 80.2707], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    // User Marker (Static)
+    userMarker = L.marker([13.0827, 80.2707]).addTo(map).bindPopup("📍 You Stop").openPopup();
+
+    // Bus Marker
+    busMarker = L.marker([13.0827, 80.2707], { icon: L.divIcon({
+        className: 'bus-icon',
+        html: '<span style="font-size: 50px;">🚌</span>',
+        iconSize: [40, 40]
+    })}).addTo(map).bindPopup("🚌 Bus");
+
+    // Get User Location
+    function trackUser() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    centerLat = position.coords.latitude.toFixed(6);
+                    centerLon = position.coords.longitude.toFixed(6);
+
+                    userMarker.setLatLng([centerLat, centerLon]);
+                    map.setView([centerLat, centerLon], 17);
+
+                    document.getElementById("location-info").innerText = `📍 Your Location: ${centerLat}, ${centerLon}`;
+
+                    defineRoute();
+                    moveBus();
+                    setTimeout(checkUserStop, 10000); // Check if bus passed user stop after 10s
+                },
+                (error) => {
+                    console.error("GPS Error:", error);
+                    alert("❌ Enable GPS for accurate location.");
+                },
+                { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+            );
+        } else {
+            alert("❌ Geolocation not supported.");
+        }
+    }
+
+    // Define a straight-line route (simplified for demo)
+    function defineRoute() {
+        route = [];
+        for (let i = 0; i < 10; i++) {
+            route.push([parseFloat(centerLat) + (i * 0.0005), parseFloat(centerLon)]);
+        }
+    }
+
+    // Move Bus in a straight line
+    function moveBus() {
+        moveInterval = setInterval(() => {
+            if (currentIndex < route.length) {
+                busMarker.setLatLng(route[currentIndex]);
+                map.setView(route[currentIndex], 17);
+                currentIndex++;
+                checkUserStop(); // Check on each move
+            } else {
+                clearInterval(moveInterval);
+            }
+        }, 1000); // Moves every 1 second
+    }
+
+    // Check if bus has passed the user's stop
+    function checkUserStop() {
+        if (currentIndex >= 5 && !emergencyTriggered) { // Assuming user stop is around index 5
+            emergencyTriggered = true;
+            showNotification();
+        }
+    }
+
+    // Show Emergency Notification
+    function showNotification() {
+        if (!("Notification" in window)) {
+            alert("This browser does not support notifications.");
+            return;
+        }
+
+        if (Notification.permission === "granted") {
+            let notification = new Notification("⚠️ Bus Passed Your Stop!", {
+                body: "Click to confirm you're safe or SOS will be sent.",
+                icon: "https://cdn-icons-png.flaticon.com/512/5706/5706543.png"
+            });
+
+            notification.onclick = function () {
+                clearTimeout(timer);
+                notification.close();
+                alert("✅ Response received. No SOS sent.");
+            };
+
+            startAutoSOSTimer();
+        } else {
+            alert("❌ Notifications are blocked.");
+        }
+    }
+
+    // Auto-send SOS if no response in 10 seconds
+    function startAutoSOSTimer() {
+        let timer = setTimeout(() => {
+            sendSOS();
+        }, 5000);
+    }
+
+    // Send SOS Message
+    function sendSOS() {
+        fetch("/send_sos", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ latitude: centerLat, longitude: centerLon, phone: predefinedPhoneNumber })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("🚨 SOS Sent! Response: " + JSON.stringify(data));
+            window.close();
+        })
+        .catch(error => {
+            alert("❌ Error sending SOS: " + error);
+            window.close();
+        });
+    }
+
+    // Start tracking user when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+        Notification.requestPermission().then(() => {
+            trackUser();
+        });
+    });
+</script>
+{% endblock %}

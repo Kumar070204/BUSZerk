@@ -1,0 +1,101 @@
+Bus_ID,Route_ID,Passenger_ID,Boarding_Stop,Destination_Stop,Date,Day_of_Week,Time,Weather
+MTC_101,Route_1,Passenger_1,Koyambedu,Adyar,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_2,Koyambedu,Ashok Pillar,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_3,Koyambedu,Adyar,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_4,Koyambedu,Vadapalani,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_5,Koyambedu,Ashok Pillar,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_6,Koyambedu,Adyar,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_7,Koyambedu,Saidapet,01-01-2024,Monday,06:00,Raining
+MTC_101,Route_1,Passenger_8,Koyambedu,Saidapet,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_9,Koyambedu,Saidapet,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_10,Koyambedu,Vadapalani,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_11,Koyambedu,Saidapet,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_12,Koyambedu,Guindy,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_13,Koyambedu,Ashok Pillar,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_14,Koyambedu,T. Nagar,01-01-2024,Monday,06:05,Cloudy
+MTC_101,Route_1,Passenger_15,Koyambedu,Vadapalani,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_16,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_17,Koyambedu,Saidapet,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_18,Koyambedu,T. Nagar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_19,Koyambedu,T. Nagar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_20,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_21,Koyambedu,T. Nagar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_22,Koyambedu,Vadapalani,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_23,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_24,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_25,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_26,Koyambedu,Adyar,01-01-2024,Monday,06:10,Clear
+MTC_101,Route_1,Passenger_27,Vadapalani,Saidapet,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_28,Vadapalani,Guindy,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_29,Vadapalani,Saidapet,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_30,Vadapalani,Guindy,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_31,Vadapalani,Adyar,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_32,Vadapalani,Adyar,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_33,Vadapalani,Ashok Pillar,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_34,Vadapalani,Guindy,01-01-2024,Monday,06:20,Clear
+MTC_101,Route_1,Passenger_35,Vadapalani,Ashok Pillar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_36,Vadapalani,Saidapet,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_37,Vadapalani,Ashok Pillar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_38,Vadapalani,T. Nagar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_39,Vadapalani,Adyar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_40,Vadapalani,T. Nagar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_41,Vadapalani,Saidapet,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_42,Vadapalani,Adyar,01-01-2024,Monday,06:25,Clear
+MTC_101,Route_1,Passenger_43,Ashok Pillar,Saidapet,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_44,Ashok Pillar,Adyar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_45,Ashok Pillar,T. Nagar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_46,Ashok Pillar,Adyar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_47,Ashok Pillar,Guindy,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_48,Ashok Pillar,Adyar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_49,Ashok Pillar,Guindy,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_50,Ashok Pillar,Saidapet,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_51,Ashok Pillar,Guindy,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_52,Ashok Pillar,Saidapet,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_53,Ashok Pillar,Saidapet,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_54,Ashok Pillar,T. Nagar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_55,Ashok Pillar,Adyar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_56,Ashok Pillar,T. Nagar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_57,Ashok Pillar,Saidapet,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_58,Ashok Pillar,Guindy,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_59,Ashok Pillar,T. Nagar,01-01-2024,Monday,06:30,Clear
+MTC_101,Route_1,Passenger_60,Guindy,Saidapet,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_61,Guindy,Adyar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_62,Guindy,Saidapet,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_63,Guindy,Adyar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_64,Guindy,Saidapet,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_65,Guindy,Saidapet,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_66,Guindy,T. Nagar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_67,Guindy,T. Nagar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_68,Guindy,T. Nagar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_69,Guindy,T. Nagar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_70,Guindy,T. Nagar,01-01-2024,Monday,06:40,Clear
+MTC_101,Route_1,Passenger_71,Guindy,Saidapet,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_72,Guindy,Saidapet,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_73,Guindy,Saidapet,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_74,Guindy,Saidapet,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_75,Guindy,T. Nagar,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_76,Guindy,Adyar,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_77,Guindy,Adyar,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_78,Guindy,Adyar,01-01-2024,Monday,06:45,Clear
+MTC_101,Route_1,Passenger_79,Saidapet,Adyar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_80,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_81,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_82,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_83,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_84,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_85,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_86,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_87,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_88,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_89,Saidapet,T. Nagar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_90,Saidapet,Adyar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_91,Saidapet,Adyar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_92,Saidapet,Adyar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_93,Saidapet,Adyar,01-01-2024,Monday,06:55,Cloudy
+MTC_101,Route_1,Passenger_94,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_95,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_96,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_97,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_98,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_99,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining
+MTC_101,Route_1,Passenger_100,T. Nagar,Adyar,01-01-2024,Monday,07:05,Raining

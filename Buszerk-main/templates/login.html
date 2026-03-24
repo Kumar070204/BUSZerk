@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=500" alt="Buszerk Logo" class="auth-logo">
+    <h1>Welcome to Buszerk</h1>
+    
+    <form method="POST" class="auth-form">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+    
+    <p class="auth-link">
+        Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>
+    </p>
+</div>
+{% endblock %}

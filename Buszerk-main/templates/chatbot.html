@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Buszerk Chatbot</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h1><i class="fas fa-robot"></i> Buszerk Bot</h1>
+        <div class="header-controls">
+          <button id="mute-button" title="Mute/Unmute speech">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <a href="{{ url_for('home') }}" class="home-link" title="Back to Home">
+            <i class="fas fa-home"></i>
+          </a>
+        </div>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="message bot">
+          Hello! How can I help you with Buszerk today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input 
+          type="text" 
+          id="user-input" 
+          placeholder="Type your message..." 
+          autocomplete="off"
+        />
+        <button id="voice-button" title="Start voice input">
+          <i class="fas fa-microphone"></i>
+        </button>
+        <button id="send-button">
+          <i class="fas fa-paper-plane"></i>
+          Send
+        </button>
+      </div>
+    </div>
+    <!-- Corrected script tag -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1>User Profile</h1>
+    <div class="profile-info">
+        <label>Username:</label>
+        <span class="value">{{ user.username }}</span>
+    </div>
+    <div class="profile-info">
+        <label>Email:</label>
+        <span class="value">{{ user.email }}</span>
+    </div>
+    <div class="profile-info">
+        <label>Phone:</label>
+        <span class="value">{{ user.phone }}</span>
+    </div>
+    <div class="profile-info">
+        <label>Age:</label>
+        <span class="value">{{ user.age }}</span>
+    </div>
+    <div class="profile-info">
+        <label>Gender:</label>
+        <span class="value">{{ user.gender }}</span>
+    </div>
+    <h2>Emergency Contact</h2>
+    <div class="profile-info">
+        <label>Name:</label>
+        <span class="value">{{ user.emergency.name }}</span>
+    </div>
+    <div class="profile-info">
+        <label>Phone:</label>
+        <span class="value">{{ user.emergency.phone }}</span>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,981 @@
+/* Existing CSS (unchanged up to this point) */
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #ffffff15;
+    --accent-color: #e94560;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff80;
+    --border-color: #ffffff10;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Auth Pages */
+.auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.auth-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.auth-form input {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+}
+
+.auth-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: var(--text-secondary);
+    color: var(--primary-bg);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-secondary);
+}
+
+.auth-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Home Page */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Fake Call Button */
+.fake-call-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fake-call-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ff9800; /* Distinct color for fake call */
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fake-call-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fake-call-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-primary);
+}
+
+/* SOS Button */
+.sos-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sos-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sos-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sos-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-primary);
+}
+
+.search-container {
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+}
+
+.bus-list h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.bus-card {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.bus-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.route-info {
+    color: var(--text-secondary);
+}
+
+.route-info .time {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* SOS Page */
+.sos-page-container {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.sos-section {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sos-section p {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.success-message {
+    color: #4CAF50;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Profile Page */
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-header p {
+    color: var(--text-secondary);
+}
+
+.profile-section {
+    margin-bottom: 25px;
+}
+
+.profile-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-card {
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row .label {
+    color: var(--text-secondary);
+}
+
+/* Alert Messages */
+.alert {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Bus Card Link */
+.bus-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bus-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Bus Details Page */
+.bus-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bus-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.bus-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.route-summary {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.route-map {
+    position: relative;
+}
+
+.route-timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.stop-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin: 20px 0;
+}
+
+.stop-marker {
+    position: relative;
+    width: 60px; /* Increased to accommodate checkbox */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 2;
+}
+
+.stop-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 3px solid var(--primary-bg);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+}
+
+.bus-icon, .user-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.current-stop .stop-dot {
+    background-color: #4CAF50;
+    width: 20px;
+    height: 20px;
+}
+
+.user-stop .stop-dot {
+    background-color: #FFC107;
+    width: 20px;
+    height: 20px;
+}
+
+.final-stop .stop-dot {
+    background-color: var(--text-secondary);
+}
+
+.checkbox-container {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.stop-checkbox {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkbox-label {
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-label::after {
+    content: '✓'; /* Checkmark symbol */
+    font-size: 16px;
+    color: var(--text-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.checkbox-label.checked::after {
+    opacity: 1; /* Show checkmark when checked */
+}
+
+.checkbox-label:hover {
+    border-color: var(--accent-color);
+}
+
+.stop-info {
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.stop-info h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.stop-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    color: var(--text-secondary);
+}
+
+.stop-stats p {
+    font-size: 14px;
+}
+
+.route-connector {
+    position: absolute;
+    left: 28.5px; /* Aligned with the stop-dot */
+    width: 2px;
+    background-color: var(--accent-color);
+    height: calc(100% - 60px);
+    top: 50px;
+    z-index: 1;
+}
+
+/* Chatbot Icon */
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.robot-icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--accent-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Live Bus Tracking Icon */
+.tracking-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.tracking-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.bus-tracking-icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--accent-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Chatbot Page Styles */
+.chat-container {
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    margin: 20px auto;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--primary-bg);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h1 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-header .fa-robot {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.typing-indicator {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    background-color: var(--secondary-bg);
+    border-radius: 15px;
+}
+
+.typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    animation: bounce 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-4px); }
+}
+
+.typing-indicator.active {
+    display: flex;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: var(--secondary-bg);
+}
+
+.message {
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    line-height: 1.4;
+}
+
+.message::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 20px;
+    height: 20px;
+}
+
+.user {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.user::before {
+    right: -10px;
+    border-radius: 0 0 0 20px;
+    box-shadow: -10px 0 0 0 var(--accent-color);
+}
+
+.bot {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    border-bottom-left-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.bot::before {
+    left: -10px;
+    border-radius: 0 0 20px 0;
+    box-shadow: 10px 0 0 0 var(--primary-bg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-input {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 12px;
+    background-color: var(--secondary-bg);
+    border-radius: 0 0 10px 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+}
+
+#user-input::placeholder {
+    color: var(--text-secondary);
+}
+
+#user-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+}
+
+#voice-button {
+    padding: 15px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+#voice-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#voice-button:active {
+    transform: translateY(0);
+}
+
+#voice-button.listening {
+    background-color: var(--text-secondary);
+    color: var(--primary-bg);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 2255, 0);
+    }
+}
+
+#send-button {
+    padding: 15px 30px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#send-button i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+#send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#send-button:hover i {
+    transform: translateX(3px);
+}
+
+#send-button:active {
+    transform: translateY(0);
+}
+
+#mute-button {
+    padding: 10px;
+    background-color: var(--text-secondary);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+#mute-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#mute-button:active {
+    transform: translateY(0);
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: var(--secondary-bg);
+    border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+    border: 2px solid var(--secondary-bg);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .auth-container {
+        padding: 20px;
+    }
+    
+    .stop-info {
+        margin-left: 10px;
+    }
+    
+    .stop-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .chat-header {
+        border-radius: 0;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+    
+    #send-button {
+        padding: 15px;
+    }
+    
+    #send-button span {
+        display: none;
+    }
+    
+    .chatbot-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .robot-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sos-button {
+        padding: 8px 16px;
+    }
+
+    .sos-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .fake-call-button {
+        padding: 8px 16px;
+    }
+
+    .fake-call-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .tracking-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .bus-tracking-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .checkbox-container {
+        left: -11.5px; /* Moved 1.5px to the left */
+        top: 50%;
+        transform: translateY(-50%) translateY(1.5px); /* Moved 1.5px below */
+    }
+
+    .checkbox-label {
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkbox-label::after {
+        font-size: 14px;
+    }
+
+    .route-connector {
+        left: 25px; /* Adjusted for mobile to align with smaller stop-marker */
+    }
+}
