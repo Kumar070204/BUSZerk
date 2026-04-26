@@ -1,10 +1,6 @@
-<div align="center">
+# 🚌 Buszerk
 
-<!-- TITLE BLOCK -->
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:1a1a2e,50:e94560,100:0f3460&height=220&section=header&text=BUSZerk&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=45&desc=ML-Powered%20Women's%20Safety%20%26%20Smart%20Transit%20App%20for%20Chennai&descSize=18&descAlignY=68&descColor=dddddd" />
-
-<br/>
-
+Smart Bus Management System for efficient route tracking, scheduling, and real-time passenger updates.
 <!-- BADGES ROW 1 — Tech -->
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
