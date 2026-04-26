@@ -37,22 +37,6 @@ The core intelligence is an **XGBoost model trained on real MTC ticketing data**
 
 ---
 
-## Demo
-
-> 📸 **Add your screenshots here** — drag images into a GitHub issue to get the URL, then paste below.
-
-```
-<!-- Replace these with actual screenshots -->
-<p align="center">
-  <img src="screenshots/home.png" width="30%" />
-  <img src="screenshots/bus_detail.png" width="30%" />
-  <img src="screenshots/sos.png" width="30%" />
-</p>
-```
-
-> 🎥 **Record a 30-second screen recording** using [ScreenToGif](https://www.screentogif.com/) and drop it here. A live demo GIF is the single most impactful thing you can add to this README.
-
----
 
 ## Features
 
