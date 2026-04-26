@@ -219,6 +219,3 @@ The XGBoost model is trained in `BUSZERK1_.ipynb` — see the notebook for prepr
 
 ---
 
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
